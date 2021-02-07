@@ -6,4 +6,4 @@
 사용자모드 : 로그인,회원가입 기능, 상품보기, 구매기능   
    
 UML   
-![UML](https://user-images.githubusercontent.com/59338729/107151706-413e7800-69a7-11eb-8016-dd27503e6024.png)
+(https://user-images.githubusercontent.com/59338729/107151706-413e7800-69a7-11eb-8016-dd27503e6024.png)
