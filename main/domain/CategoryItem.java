@@ -2,11 +2,12 @@ package com.jpaproject.jpaproject.domain;
 
 import com.jpaproject.jpaproject.domain.Item.Item;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity  // 카테고리 아이템 엔터티
-@Getter
+@Getter @Setter
 public class CategoryItem {
 
     @Id @GeneratedValue

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>주문내역</title>
+    <link rel="stylesheet" th:href="@{/css/item.css}">
+</head>
+<body>
+  <div class="container">
+      
+      <table class="item-list">
+          <thead>
+            <tr>
+                <th></th>
+                <th>상품명</th>
+                <th>가격</th>
+                <th>재고수량</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${items}">
+                <td th:text="${item.id}"></td>
+                <td th:text="${item.name}"></td>
+                <td th:text="${item.price}"></td>
+                <td th:text="${item.stockQuantity}"></td>
+                <td>
+                    <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
+                       class="btn" role="button">수정</a>
+                </td>
+            </tr>
+            </tbody>
+      </table>
+      
+  </div>
+   
+    
+</body>
+</html>

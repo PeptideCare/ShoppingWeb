@@ -21,8 +21,17 @@ public class MemberRepository {
     }
 
     //하나의 멤버 조회
+    //NPE 방지를 위해 null 값을 "false" 변환
     public Member findOne(String id) {
-        return em.find(Member.class, id);
+        if (em.find(Member.class, id) == null) {
+            Member member = new Member();
+            member.setId("false");
+            member.setPassword("false");
+            return member;
+        }
+        else {
+            return em.find(Member.class, id);
+        }
     }
 
     //전체 멤버 조회

@@ -1,13 +1,14 @@
 package com.jpaproject.jpaproject.domain;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity  // 카테고리 엔터티
-@Getter
+@Getter @Setter
 public class Category {
 
     @Id @GeneratedValue

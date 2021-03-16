@@ -1,0 +1,36 @@
+body {
+    background-color: darkslategray;
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.item-list{
+    color: antiquewhite;
+    border: 1px solid black;
+}
+
+th {
+    padding: 20px;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+th:nth-child(6) {
+    border-right: 0px solid black;
+}
+
+td {
+    border-right: 1px solid black;
+}
+
+td:nth-child(6) {
+    border-right: 0px solid black;
+}
+
+.btn {
+    text-decoration: none;
+    color: blueviolet;
+    margin-left: 3px;
+}
