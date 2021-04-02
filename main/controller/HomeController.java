@@ -19,4 +19,10 @@ public class HomeController {
         log.info("로그인");
         return "/main/mainUser";
     }
+
+    @RequestMapping("/admin")
+    public String adminHome() {
+        log.info("관리자 로그인");
+        return "/main/mainAdmin";
+    }
 }

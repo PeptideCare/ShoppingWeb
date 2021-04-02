@@ -8,20 +8,26 @@
 </head>
 <body>
    <div class="container">
-       <form action="">
+       <form action="/item/new" th:object="${item}" method="post">
            <div class="group-item">
                <p>상품명</p>
-               <select name="itemId" id="item">
-                <option value="">상품선택</option>
-                <option th:each="item : ${items}"
-                        th:value="${item.id}"
-                        th:text="${item.name}" />
-                   
-               </select>       
+               <input type="text" th:field="*{name}" placeholder="상품명을 입력하세요.">
+           </div>
+           <div class="group-order">
+               <p>가격</p>
+               <input type="number" th:field="*{price}" placeholder="가격을 입력하세요.">
            </div>
            <div class="group-order">
                <p>재고수량</p>
-               <input type="number" name="count" id="count" placeholder="재고 수량을 입력하세요."> 
+               <input type="number" th:field="*{stockQuantity}" placeholder="재고 수량을 입력하세요.">
+           </div>
+           <div class="group-order">
+               <p>사이즈</p>
+               <input type="text" th:field="*{size}" placeholder="사이즈를 입력하세요.">
+           </div>
+           <div class="group-order">
+               <p>설명</p>
+               <input type="text" th:field="*{etc}" placeholder="설명을 입력하세요.">
            </div>
            <input class="btn" type="submit" value="등록하기">
        </form>

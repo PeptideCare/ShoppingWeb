@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -60,6 +61,10 @@ public class MemberController{
         String id = form.getId();
         String pw = form.getPw();
 
+        if (id.equals("123") && pw.equals("123")) {
+            return "redirect:/admin";
+        }
+
         Member member = memberService.findOne(id);
 
         // 아이디가 없을 시
@@ -75,5 +80,12 @@ public class MemberController{
         else {
             return "/member/login";
         }
+    }
+
+    @GetMapping("/member/memberList")
+    public String memberList(Model model) {
+        List<Member> members = memberService.findAll();
+        model.addAttribute("members", members);
+        return "/member/memberList";
     }
 }

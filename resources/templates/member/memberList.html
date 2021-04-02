@@ -9,7 +9,7 @@
 <body>
   <div class="container">
       
-      <table class="item-list">
+      <table class="member-list">
           <thead>
             <tr>
                 <th>회원ID</th>
@@ -21,14 +21,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="item : ${items}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.price}"></td>
-                <td th:text="${item.stockQuantity}"></td>
+            <tr th:each="member : ${members}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.address.city}"></td>
+                <td th:text="${member.address.street}"></td>
+                <td th:text="${member.address.zipcode}"></td>
                 <td>
-                    <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
+                    <!--<a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"-->
                        class="btn" role="button">수정</a>
                 </td>
             </tr>
