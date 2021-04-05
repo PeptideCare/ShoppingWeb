@@ -2,11 +2,14 @@ package com.jpaproject.jpaproject.controller;
 
 import com.jpaproject.jpaproject.domain.Item.Item;
 import com.jpaproject.jpaproject.domain.Item.Top;
+import com.jpaproject.jpaproject.domain.OrderItem;
 import com.jpaproject.jpaproject.service.ItemService;
+import com.jpaproject.jpaproject.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -16,6 +19,8 @@ import java.util.List;
 public class ItemController {
 
     private final ItemService itemService;
+    private final OrderService orderService;
+    private final MemberController memberController;
 
     @GetMapping("/item/new")
     public String createForm(Model model) {
@@ -41,5 +46,17 @@ public class ItemController {
         List<Item> items = itemService.findItems();
         model.addAttribute("items", items);
         return "/item/item";
+    }
+
+    @GetMapping("/item/{itemId}/{itemName}/{itemPrice}/get")
+    public String getItem(@PathVariable ("itemId") Long itemId,
+                          @PathVariable ("itemName") String itemName,
+                          @PathVariable ("itemPrice") int price) {
+
+        String memberId = memberController.getMemberId();
+
+        orderService.order(memberId, itemId, 1);
+
+        return "redirect:/user";
     }
 }

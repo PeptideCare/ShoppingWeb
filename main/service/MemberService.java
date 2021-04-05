@@ -44,4 +44,11 @@ public class MemberService {
     public List<Member> findAll() {
         return memberRepository.findAll();
     }
+
+    //회원 삭제
+    @Transactional
+    public String deleteMember(Member member) {
+        memberRepository.deleteMember(member);
+        return member.getId();
+    }
 }

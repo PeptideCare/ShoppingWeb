@@ -45,4 +45,9 @@ public class MemberRepository {
         return em.createQuery("select m from Member m where m.name = :name")
                 .getResultList();
     }
+
+    //삭제
+    public void deleteMember(Member member) {
+        em.remove(member);
+    }
 }

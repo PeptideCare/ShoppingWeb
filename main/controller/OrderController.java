@@ -17,14 +17,14 @@ public class OrderController {
     private final OrderRepository orderRepository;
     private final MemberController memberController;
 
-    @GetMapping("order/orderListUser")
+    @GetMapping("/order/orderListUser")
     public String orderList(Model model) {
         String memberId = memberController.getMemberId();
         List<Order> orders = orderRepository.findById(memberId);
         if (!orders.isEmpty()) {
             model.addAttribute("orders", orders);
         }
-        return "order/orderListUser";
+        return "/order/orderListUser";
     }
 
 }
