@@ -50,7 +50,8 @@ public class OrderService {
 
     // 아이디로 주문 조회
     public List<Order> findById(String id) {
-        return orderRepository.findById(id);
+        List<Order> order = orderRepository.findById(id);
+        return order;
     }
 
     // 모든 주문 조회

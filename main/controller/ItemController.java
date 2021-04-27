@@ -2,7 +2,6 @@ package com.jpaproject.jpaproject.controller;
 
 import com.jpaproject.jpaproject.domain.Item.Item;
 import com.jpaproject.jpaproject.domain.Item.Top;
-import com.jpaproject.jpaproject.domain.OrderItem;
 import com.jpaproject.jpaproject.service.ItemService;
 import com.jpaproject.jpaproject.service.OrderService;
 import lombok.RequiredArgsConstructor;

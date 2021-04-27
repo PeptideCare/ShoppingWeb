@@ -1,8 +1,7 @@
 package com.jpaproject.jpaproject.controller;
 
-import com.jpaproject.jpaproject.domain.Member;
 import com.jpaproject.jpaproject.domain.Order;
-import com.jpaproject.jpaproject.repository.OrderRepository;
+import com.jpaproject.jpaproject.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,17 +13,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderController {
 
-    private final OrderRepository orderRepository;
+    private final OrderService orderService;
     private final MemberController memberController;
 
-    @GetMapping("/order/orderListUser")
-    public String orderList(Model model) {
-        String memberId = memberController.getMemberId();
-        List<Order> orders = orderRepository.findById(memberId);
-        if (!orders.isEmpty()) {
-            model.addAttribute("orders", orders);
-        }
-        return "/order/orderListUser";
+    @GetMapping("/order/orderListAdmin")
+    public String orderListAdmin(Model model) {
+        List<Order> orders = orderService.findAll();
+        model.addAttribute("orders", orders);
+
+        return "/order/orderListAdmin";
     }
 
 }

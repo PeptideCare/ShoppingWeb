@@ -7,28 +7,24 @@
     <link rel="stylesheet" th:href="@{/css/item.css}">
 </head>
 <body>
+<button onclick="location.href='/admin'"><img th:src="@{/images/home.jpg}" width = "30" height="30" alt="Image"></button>
   <div class="container">
       
-      <table class="item-list">
+      <table class="order-list">
           <thead>
             <tr>
-                <th></th>
-                <th>상품명</th>
+                <th>주문번호</th>
+                <th>고객명</th>
+                <th>날짜</th>
                 <th>가격</th>
-                <th>재고수량</th>
-                <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="item : ${items}">
-                <td th:text="${item.id}"></td>
-                <td th:text="${item.name}"></td>
-                <td th:text="${item.price}"></td>
-                <td th:text="${item.stockQuantity}"></td>
-                <td>
-                    <a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"
-                       class="btn" role="button">수정</a>
-                </td>
+            <tr th:each="orders : ${orders}">
+                <td th:text="${orders.id}"></td>
+                <td th:text="${orders.member.name}"></td>
+                <td th:text="${orders.orderDate}"></td>
+                <td th:text="${orders.totalPrice}"></td>
             </tr>
             </tbody>
       </table>

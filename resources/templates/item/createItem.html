@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/order.css}">
 </head>
 <body>
+<button onclick="location.href='/admin'"><img th:src="@{/images/home.jpg}" width = "30" height="30" alt="Image"></button>
    <div class="container">
        <form action="/item/new" th:object="${item}" method="post">
            <div class="group-item">

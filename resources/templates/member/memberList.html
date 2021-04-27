@@ -7,8 +7,8 @@
     <link rel="stylesheet" th:href="@{/css/memberList.css}">
 </head>
 <body>
+<button onclick="location.href='/admin'"><img th:src="@{/images/home.jpg}" width = "30" height="30" alt="Image"></button>
   <div class="container">
-      
       <table class="member-list">
           <thead>
             <tr>
@@ -28,8 +28,8 @@
                 <td th:text="${member.address.street}"></td>
                 <td th:text="${member.address.zipcode}"></td>
                 <td>
-                    <!--<a href="#" th:href="@{/items/{id}/edit (id=${item.id})}"-->
-                       class="btn" role="button">수정</a>
+                    <a href="#" th:href="@{/member/{id}/delete (id=${member.id})}"
+                       class="btn" role="button">삭제</a>
                 </td>
             </tr>
             </tbody>

@@ -22,7 +22,7 @@ public class OrderRepository {
 
     // 아이디로 조회
     public List<Order> findById(String id) {
-        return em.createQuery("select o from Order o join o.member m where m.id = :id")
+        return em.createQuery("select o from Order o join o.member m where m.id = :id", Order.class)
                 .getResultList();
     }
 
